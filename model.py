@@ -78,12 +78,32 @@ class ResidualConnection(nn.Module):
 
 #Multihead Attention block
 class MultiHeadAttentionBlock(nn.Module):
-    def __init__(self):
-        pass
+    def __init__(self, d_model:int, h:int, dropout: float):
+        super().__init__()
+        self.d_model = d_model
+        self.h = h
+        assert d_model % h == 0, "The embedding dimension should be divisible by number of heads"
+        self.dropout = nn.Dropout(dropout)
 
+        self.d_k = d_model // h
+        self.w_q = nn.Linear(d_model, d_model, bias=False)
+        self.w_k = nn.Linear(d_model, d_model, bias=False)
+        self.w_v = nn.Linear(d_model, d_model, bias=False)
+        self.w_o = nn.Linear(d_model, d_model, bias=False)
+    
     @staticmethod
-    def attention(self):
-        pass
+    def attention(query, key, value, mask, dropout: nn.Dropout):
+        d_k = query.shape[-1]
+        attention_scores = (query @ key.transpose(-2,-1)) / math.sqrt(d_k)
+        
+        if mask is not None:
+            attention_scores.masked_fill(mask==0, -1e4)
+        attention_scores = attention_scores.softmax(dim=-1)
+
+        if dropout is not None:
+            attention_scores = dropout(attention_scores)
+
+        return ((attention_scores @ value), attention_scores)
 
     def forward(self):
         pass
