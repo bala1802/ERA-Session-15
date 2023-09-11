@@ -22,3 +22,10 @@ from tokenizers.pre_tokenizers import Whitespace
 
 import torchmetrics
 from torch.utils.tensorboard import SummaryWriter
+
+def train_model(config):
+    pass
+
+if __name__ == "__main__":
+    warnings.filterwarnings("ignore")
+    config = get_config()
