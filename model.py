@@ -229,3 +229,7 @@ class Transformer(nn.Module):
         tgt = self.tgt_embed(tgt) #Word Embedding
         tgt = self.tgt_pos(tgt) #Positional embedding
         return self.decoder(tgt, encoder_output, src_mask, tgt_mask)
+    
+    def project(self, x):
+        #batch_size, sequence_length, vocab_size
+        return self.projection_layer(x)
