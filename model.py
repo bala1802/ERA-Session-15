@@ -75,3 +75,15 @@ class ResidualConnection(nn.Module):
     
     def forward(self, x, sublayer):
         return (x + self.dropout(sublayer(self.norm(x))))
+
+#Multihead Attention block
+class MultiHeadAttentionBlock(nn.Module):
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def attention(self):
+        pass
+
+    def forward(self):
+        pass
