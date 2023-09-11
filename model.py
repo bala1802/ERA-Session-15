@@ -142,7 +142,11 @@ class EncoderBlock(nn.Module):
 #Encoder Layer
 class Encoder(nn.Module):
     def __init__(self, layers:nn.ModuleList):
-        pass
+        super().__init__()
+        self.layers = layers
+        self.norm = LayerNormalization()
 
     def forward(self, x, mask):
-        pass
+        for layer in self.layers:
+            x = layer(x, mask)
+        return (self.norm(x))
