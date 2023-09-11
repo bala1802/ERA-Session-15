@@ -15,5 +15,3 @@ def get_config():
         'tokenizer_file': 'tokenizer_{0}.json',
         'experiment_name': 'runs/tmodel'
     }
-    
-    pass
