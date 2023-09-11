@@ -151,6 +151,7 @@ class Encoder(nn.Module):
             x = layer(x, mask)
         return (self.norm(x))
 
+#Decoder Block
 class DecoderBlock(nn.Module):
     def __init__(self, 
                  self_attention_block: MultiHeadAttentionBlock, 
@@ -169,6 +170,7 @@ class DecoderBlock(nn.Module):
         x = self.residual_connections[2](x, self.feed_forward_block)
         return(x)
 
+#Decoder Layer
 class Decoder(nn.Module):
 
     def __init__(self, layers: nn.ModuleList) -> None:
@@ -181,6 +183,7 @@ class Decoder(nn.Module):
             x = layer(x, encoder_output, src_mask, tgt_mask)
         return(self.norm(x))
 
+#Projection Layer
 class ProjectionLayer(nn.Module):
     def __init__(self, d_model, vocab_size) -> None:
         super().__init__()
