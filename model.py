@@ -220,8 +220,12 @@ class Transformer(nn.Module):
         src = self.src_pos(src) #Positional encoding
         return self.encoder(src, src_mask)
 
-    def decode(self):
-        pass
-
-    def project(self):
-        pass
+    def decode(self, 
+               encoder_output: torch.Tensor, 
+               src_mask: torch.Tensor, 
+               tgt: torch.Tensor, 
+               tgt_mask: torch.Tensor):
+        #batch, sequence_length, d_model (embedding dimension)
+        tgt = self.tgt_embed(tgt) #Word Embedding
+        tgt = self.tgt_pos(tgt) #Positional embedding
+        return self.decoder(tgt, encoder_output, src_mask, tgt_mask)
