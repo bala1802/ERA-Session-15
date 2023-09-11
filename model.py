@@ -214,8 +214,11 @@ class Transformer(nn.Module):
         self.tgt_pos = tgt_pos
         self.projection_layer = projection_layer
 
-    def encode(self):
-        pass
+    def encode(self, src_mask):
+        #batch, sequence_length, d_model (embedding dimension)
+        src = self.src_embed(src) #Word embedding
+        src = self.src_pos(src) #Positional encoding
+        return self.encoder(src, src_mask)
 
     def decode(self):
         pass
