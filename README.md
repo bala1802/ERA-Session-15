@@ -1,5 +1,8 @@
 # Transformers From Scratch
 
+## Purpose of this repository:
+Implemented custom Transformers-based deep learning architecture for English to Italian translation in Python.
+
 ## Architecture
 ![Alt text](image.png)
 
