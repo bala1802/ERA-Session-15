@@ -1,10 +1,12 @@
 # Transformers From Scratch
 
 ## Architecture
+![Alt text](Transformers-Architecture.webp)
 
+## Training Loss
+![Alt text](TrainingLoss.png)
 
-
-## Training Logs with Loss
+## Logs
 
     Epoch: 0
     Training Loss: 5.11556
