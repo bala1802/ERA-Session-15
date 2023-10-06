@@ -1,7 +1,7 @@
 # Transformers From Scratch
 
 ## Architecture
-![Alt text](Transformers-Architecture.webp)
+![Alt text](image.png)
 
 ## Training Loss
 ![Alt text](TrainingLoss.png)
