@@ -160,4 +160,6 @@ cython_debug/
 #.idea/
 helper.ipynb
 tokenizer_en.json
-tokenizer_fr.json
+tokenizer_it.json
+transformer.pth
+lightning_logs/
