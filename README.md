@@ -1,4 +1,4 @@
-# ERA-Session-15
+# Transformers From Scratch
 Session-15 Assignment
 
 ## Training Logs with Loss
